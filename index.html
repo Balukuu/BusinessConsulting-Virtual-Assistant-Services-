@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Business Consulting (Virtual Assistant Services)</title>
+    <meta name="description" content="Comprehensive Administrative and Technical Virtual Assistant solutions designed to support growing businesses, executives, and entrepreneurs.">
+    <link rel="icon" href="logonew.webp">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+:root {
+  --primary: #4E81B6;
+  --primary-dark: #3C6D9E;
+  --primary-light: #EBF3FB;
+  --secondary: #F59E0B;
+  --dark: #0F172A;
+  --dark-mid: #1E293B;
+  --text: #1E293B;
+  --text-muted: #64748B;
+  --surface: #FFFFFF;
+  --surface-alt: #F8FAFC;
+  --border: #E2E8F0;
+  --success: #10B981;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-lg: 0 20px 48px rgba(0,0,0,0.12), 0 8px 16px rgba(0,0,0,0.06);
+  --shadow-xl: 0 32px 64px rgba(0,0,0,0.16);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --nav-height: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.7; margin: 0; padding: 0; background-color: var(--surface); opacity: 0; transition: opacity 0.4s ease; overflow-x: hidden; }
+body.loaded { opacity: 1; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Bricolage Grotesque', sans-serif; margin-top: 0; line-height: 1.2; }
+h1 { font-size: 3rem; font-weight: 700; letter-spacing: -0.025em; }
+h2 { font-size: 2.25rem; font-weight: 700; letter-spacing: -0.02em; }
+h3 { font-size: 1.375rem; font-weight: 600; }
+h4 { font-size: 1.1rem; font-family: 'Inter', sans-serif; font-weight: 600; }
+.display { font-size: 4rem; font-weight: 800; letter-spacing: -0.03em; }
+.caption { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; height: auto; display: block; }
+p { margin-top: 0; }
+
+/* ── NAVBAR ── */
+.navbar { position: fixed; top: 0; width: 100%; z-index: 1000; height: var(--nav-height); background: #ffffff; transition: var(--transition); display: flex; align-items: center; padding: 0 48px; box-sizing: border-box; justify-content: space-between; border-bottom: 1px solid var(--border); }
+.navbar.scrolled { background: rgba(255,255,255,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: var(--shadow-md); border-bottom-color: transparent; height: 64px; }
+.navbar.scrolled .logo img { transform: scale(0.92); }
+.logo img { max-height: 48px; width: auto; transition: var(--transition); transform-origin: left center; }
+.nav-links { display: flex; gap: 8px; align-items: center; }
+.nav-link { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.9rem; color: var(--text-muted); padding: 8px 14px; border-radius: var(--radius-sm); transition: var(--transition); }
+.nav-link:hover { color: var(--primary); background: var(--primary-light); }
+.nav-link.active { color: var(--primary); background: var(--primary-light); font-weight: 600; }
+
+.hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1002; padding: 8px; border-radius: var(--radius-sm); transition: var(--transition); }
+.hamburger:hover { background: var(--surface-alt); }
+.hamburger span { display: block; width: 22px; height: 2px; background-color: var(--dark); border-radius: 2px; transition: var(--transition); }
+
+.mobile-menu-overlay { position: fixed; top: 0; right: 0; width: 100vw; height: 100vh; background: linear-gradient(135deg, var(--dark) 0%, var(--dark-mid) 100%); z-index: 1001; transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 12px; }
+.mobile-menu-overlay.open { transform: translateX(0); }
+/* ── BUTTON STYLES ── */
+.btn { display: inline-flex; align-items: center; justify-content: center; padding: 14px 32px; border-radius: var(--radius-pill); font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); text-align: center; border: 2px solid transparent; position: relative; z-index: 1; overflow: hidden; outline: none; }
+.btn::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; transition: opacity 0.3s ease; opacity: 0; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(78, 129, 182, 0.25); }
+.btn:active { transform: translateY(-1px); box-shadow: 0 5px 15px rgba(78, 129, 182, 0.2); }
+
+.btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white !important; border: none; box-shadow: 0 4px 12px rgba(78, 129, 182, 0.3); }
+.btn-primary::before { background: linear-gradient(135deg, var(--primary-dark) 0%, #2A5A8A 100%); opacity: 0; }
+.btn-primary:hover::before { opacity: 1; }
+.btn-primary:hover { color: white !important; box-shadow: 0 12px 28px rgba(78, 129, 182, 0.4); }
+
+.btn-outline { background: transparent; color: var(--primary) !important; border-color: var(--primary); }
+.btn-outline:hover { background: var(--primary); color: white !important; box-shadow: 0 10px 25px rgba(78, 129, 182, 0.25); }
+
+.btn-outline-white { background: transparent; color: white !important; border-color: rgba(255,255,255,0.6); }
+.btn-outline-white:hover { background: white; color: var(--primary) !important; border-color: white; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); }
+
+.btn-white { background: white; color: var(--primary) !important; box-shadow: var(--shadow-md); border: none; }
+.btn-white:hover { box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+
+.site-footer { background-color: var(--dark); color: white; padding: 100px 40px 40px; position: relative; }
+.shape-divider { position: absolute; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+.shape-divider svg { display: block; width: calc(100% + 1.3px); height: 60px; }
+.shape-divider.top { top: -60px; }
+.shape-divider.bottom { bottom: 0; transform: rotate(180deg); }
+.shape-divider .shape-fill { fill: var(--dark); }
+.shape-divider.surface-alt .shape-fill { fill: var(--surface-alt); }
+.footer-grid { display: grid; grid-template-columns: 2fr 1.5fr 1fr 1.5fr; gap: 40px; max-width: 1200px; margin: 0 auto; }
+.footer-logo img { max-height: 42px; filter: brightness(0) invert(1); margin-bottom: 24px; }
+.footer-socials { display: flex; gap: 16px; margin-top: 24px; }
+.social-icon { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--primary); display: flex; align-items: center; justify-content: center; color: var(--primary); transition: var(--transition); }
+.social-icon:hover { background-color: var(--primary); color: white; transform: translateY(-3px); }
+.footer-col h4 { color: var(--primary); margin-bottom: 24px; }
+.footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.footer-col ul li a { color: rgba(255, 255, 255, 0.6); transition: var(--transition); }
+.footer-col ul li a:hover { color: var(--primary); }
+.footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; color: rgba(255, 255, 255, 0.6); }
+.footer-contact-item i { color: var(--primary); margin-top: 4px; }
+.footer-bottom { max-width: 1200px; margin: 60px auto 0; padding-top: 24px; border-top: 1px solid rgba(27, 79, 216, 0.2); display: flex; justify-content: space-between; color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+
+.section-padding { padding: 100px 20px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; box-sizing: border-box; }
+.text-center { text-align: center; }
+.section-label { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--primary); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; display: flex; align-items: center; gap: 16px; }
+.section-label::before { content: ''; display: inline-block; width: 40px; height: 2px; background-color: var(--primary); }
+.section-label.center { justify-content: center; }
+.section-label.center::before, .section-label.center::after { content: ''; width: 40px; height: 2px; background-color: var(--primary); display: inline-block; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 48px; }
+.flex-split { display: flex; align-items: center; gap: 64px; }
+.hero-img { width: 100%; max-height: 600px; object-fit: cover; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); display: block; }
+.py-section { padding: 100px 0; }
+.py-hero { padding: calc(var(--nav-height) + 60px) 0 60px; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+.whatsapp-widget { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; background-color: #25D366; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; z-index: 999; box-shadow: var(--shadow-md); animation: pulse-wa 2s infinite; transition: var(--transition); }
+.whatsapp-widget:hover { transform: scale(1.1); }
+@keyframes pulse-wa { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); } 70% { box-shadow: 0 0 0 16px transparent; } 100% { box-shadow: 0 0 0 0 transparent; } }
+@keyframes floatSlow { 0% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-15px) scale(1.02); } 100% { transform: translateY(0px) scale(1); } }
+.back-to-top { position: fixed; bottom: 104px; right: 30px; width: 44px; height: 44px; background-color: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; z-index: 998; opacity: 0; pointer-events: none; transition: var(--transition); }
+.back-to-top.visible { opacity: 1; pointer-events: all; }
+.back-to-top:hover { background-color: var(--primary-dark); transform: translateY(-3px); }
+*:focus-visible { outline: 2.5px solid var(--primary); outline-offset: 3px; }
+
+@media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } .grid-3, .grid-2 { grid-template-columns: 1fr 1fr; } .flex-split { gap: 40px; } }
+@media (max-width: 768px) { 
+  .nav-links, .nav-btn-wrapper { display: none; } 
+  .hamburger { display: flex; } 
+  .footer-grid { grid-template-columns: 1fr; } 
+  .grid-3, .grid-2 { grid-template-columns: 1fr; gap: 32px; } 
+  .flex-split { flex-direction: column; gap: 40px; }
+  .flex-split > div { flex: 1 1 100% !important; padding-right: 0 !important; width: 100%; }
+  .footer-bottom { flex-direction: column; gap: 16px; text-align: center; } 
+  h1 { font-size: 2.25rem; } 
+  h2 { font-size: 2rem; }
+  .hero-img { max-height: 400px; }
+  .py-section { padding: 60px 0; }
+  .py-hero { padding: calc(var(--nav-height) + 40px) 0 40px; }
+  .test-carousel { height: 400px !important; }
+}
+</style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Business Consulting (Virtual Assistant Services)",
+      "description": "Virtual Assistant and Business Consulting Services",
+      "url": "https://businessvcon.mystrikingly.com/",
+      "telephone": "+256 780 545 636",
+      "email": "hr.business477@gmail.com",
+      "address": "Kamwokya, Kampala Uganda",
+      "serviceType": ["Virtual Assistant", "Business Consulting", "Administrative Support", "HR Management"]
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar" aria-label="Main Navigation">
+        <a href="index.html" class="logo" style="display: inline-flex; align-items: center;">
+            <img src="logonew.webp" alt="Business Consulting Logo" style="height: 56px; width: auto; transform: scale(1.1); transform-origin: left;">
+        </a>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link header-light ">Home</a>
+            <a href="services.html" class="nav-link header-light ">Services</a>
+            <a href="about.html" class="nav-link header-light ">About Us</a>
+            <a href="resources.html" class="nav-link header-light ">Resources</a>
+            <a href="contact.html" class="nav-link header-light ">Contact Us</a>
+        </div>
+        <div class="nav-btn-wrapper">
+            <a href="contact.html" class="btn btn-primary" style="padding: 12px 32px;">Get a Quote</a>
+        </div>
+        <div class="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+
+    <div class="mobile-menu-overlay">
+        <a href="index.html" class="mobile-nav-link">Home</a>
+        <a href="services.html" class="mobile-nav-link">Services</a>
+        <a href="about.html" class="mobile-nav-link">About Us</a>
+        <a href="resources.html" class="mobile-nav-link">Resources</a>
+        <a href="contact.html" class="mobile-nav-link">Contact Us</a>
+        <div class="footer-socials" style="margin-top:24px;">
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+<!-- Hero Section -->
+<section class="hero-section py-hero" style="background-color: var(--primary); position: relative; overflow: hidden;">
+    <div class="container grid-2" style="align-items: center;">
+        <div class="reveal" style="z-index: 2;">
+            <h1 style="color: white; font-size: 3.5rem; margin-bottom: 24px; line-height: 1.15; letter-spacing: -0.02em;">Welcome to Business Consulting</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.1rem; font-family: 'Inter', sans-serif; line-height: 1.6; margin-bottom: 32px; max-width: 500px;">
+                The importance of optimized operations to any fast-growing business cannot be overemphasized. We are a registered firm set out to meet the needs of modern workflows professionally.
+            </p>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+                <a href="about.html" class="btn btn-white">
+                    READ MORE &rarr;
+                </a>
+                <a href="contact.html" class="btn btn-outline-white">
+                    CONTACT US <i class="fa-solid fa-phone" style="margin-left: 8px;"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="reveal" style="position: relative; z-index: 2; transition-delay: 0.2s;">
+            <img src="hero-split.png" alt="Business Professionals Handshake" class="hero-img">
+        </div>
+    </div>
+</section>
+
+<!-- About Preview -->
+<section class="py-section" style="background-color: var(--surface); position: relative; z-index: 2;">
+    <div class="container flex-split">
+        <div style="flex: 0 0 55%; padding-right: 20px;" class="reveal">
+            <div class="section-label">Who We Are</div>
+            <h2 style="color: var(--dark); font-size: 2.5rem; margin-bottom: 24px;">Empowering Businesses Through Operational Efficiency</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 1.1rem;">
+                Business Consulting (Virtual Assistant Services) was founded with the vision of enabling businesses to scale efficiently through virtual solutions. We specialize in Administrative, Customer & Client, Marketing, and Operational support. 
+            </p>
+            <p style="color: var(--text-muted); margin-bottom: 32px; font-size: 1.1rem;">
+                Our philosophy centers on practical, effective solutions tailored strictly to individual client needs. We streamline operations to help you reclaim your time and achieve measurable results.
+            </p>
+            <a href="about.html" style="color: var(--primary); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; border-bottom: 2px solid transparent; padding-bottom: 2px;">
+                Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+        <div style="flex: 0 0 45%; position: relative;" class="reveal">
+            <div style="aspect-ratio: 4/5; border-radius: var(--radius-lg); position: relative; overflow: hidden; box-shadow: var(--shadow-lg); background: var(--primary-light);">
+                <img src="growth_data.png" alt="Operational Data Illustration" style="width: 100%; height: 100%; object-fit: cover; animation: floatSlow 6s ease-in-out infinite;">
+            </div>
+            <div style="position: absolute; bottom: 40px; left: -40px; background: white; padding: 24px 32px; border-radius: var(--radius-md); box-shadow: var(--shadow-lg); border-left: 4px solid var(--primary);">
+                <div class="do-count" data-target="100" data-suffix="+" style="font-family: 'Bricolage Grotesque', sans-serif; font-weight: 800; font-size: 2rem; color: var(--dark);">0+</div>
+                <div class="caption" style="color: var(--text-muted);">Missions Delivered</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Section -->
+<section class="py-section" style="background-color: var(--surface-alt); position: relative; z-index: 3;">
+    <!-- Top divider (white to surface-alt) -->
+    <div class="shape-divider surface-alt top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 120 0 0z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <div class="container">
+        <div class="text-center reveal" style="margin-bottom: 64px;">
+            <div class="section-label center">Our Services</div>
+            <h2 style="color: var(--dark);">What We Do</h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto 0;">Comprehensive Administrative and Technical Virtual Assistant solutions designed to support growing businesses, executives, and entrepreneurs.</p>
+        </div>
+        
+        <div class="grid-3" style="margin-bottom: 56px;">
+            <!-- Service 1 -->
+            <div class="service-card reveal">
+                <div class="service-icon-wrap">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h3 style="color: var(--dark); margin-bottom: 12px;">Core Administrative</h3>
+                <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 24px;">Optimizing daily workflows through managed email &amp; calendar coordination, precise document preparation, detailed data entry, and seamless travel and meeting arrangements.</p>
+                <a href="services.html" style="color: var(--primary); font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 6px;">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card reveal" style="transition-delay: 0.1s;">
+                <div class="service-icon-wrap">
+                    <i class="fa-solid fa-headset"></i>
+                </div>
+                <h3 style="color: var(--dark); margin-bottom: 12px;">Customer &amp; Client</h3>
+                <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 24px;">Enhancing client satisfaction by swiftly resolving email, chat, and phone inquiries, meticulous CRM management, and streamlined appointment booking processes.</p>
+                <a href="services.html" style="color: var(--primary); font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 6px;">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card reveal" style="transition-delay: 0.2s;">
+                <div class="service-icon-wrap">
+                    <i class="fa-solid fa-users-gear"></i>
+                </div>
+                <h3 style="color: var(--dark); margin-bottom: 12px;">HR &amp; People Admin</h3>
+                <p style="color: var(--text-muted); line-height: 1.65; margin-bottom: 24px;">A specialized add-on for comprehensive recruitment coordination, effective onboarding administration, robust employee records management, and strict policy implementation.</p>
+                <a href="services.html" style="color: var(--primary); font-weight: 600; font-size: 0.875rem; letter-spacing: 0.03em; display: inline-flex; align-items: center; gap: 6px;">View Details <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        
+        <div class="text-center reveal" style="transition-delay: 0.3s;">
+            <a href="services.html" class="btn btn-primary">See All Services &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us -->
+<section class="py-section" style="background-color: var(--dark); color: white; position: relative;">
+    <div class="shape-divider top">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M1200 120L0 120 0 0z" class="shape-fill"></path>
+        </svg>
+    </div>
+    <div class="container grid-2" style="align-items: center;">
+        <div class="reveal">
+            <div class="section-label">Why Choose Us</div>
+            <h2 style="font-size: 2.75rem; margin-bottom: 24px;">The Smart Choice for Growing Teams</h2>
+            <p style="color: rgba(255,255,255,0.7); max-width: 480px; margin-bottom: 40px; font-size: 1.1rem;">
+                We don't just complete tasks; we align with your specific objectives. Our solution-oriented approach ensures you get high-quality deliverables securely, confidently, and on time. Let us handle the backend so you can focus on core growth.
+            </p>
+            <a href="contact.html" class="btn btn-primary">Start Today</a>
+        </div>
+        <div>
+            <div class="reveal" style="padding-bottom: 32px; border-bottom: 1px solid rgba(27, 79, 216, 0.3); margin-bottom: 32px;">
+                <div style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">01. Alignment</div>
+                <h4 style="margin-bottom: 12px; font-weight: 600;">Tailored Solutions</h4>
+                <p style="color: rgba(255,255,255,0.65);">We thoroughly align with your core business vision to provide practical, effective solutions.</p>
+            </div>
+            
+            <div class="reveal" style="transition-delay: 0.15s; padding-bottom: 32px; border-bottom: 1px solid rgba(27, 79, 216, 0.3); margin-bottom: 32px;">
+                <div style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">02. Solution-Oriented</div>
+                <h4 style="margin-bottom: 12px; font-weight: 600;">Actionable Outcomes</h4>
+                <p style="color: rgba(255,255,255,0.65);">Focused strictly on producing actionable outcomes, timely delivery, and measurable progress.</p>
+            </div>
+            
+            <div class="reveal" style="transition-delay: 0.3s; padding-bottom: 0;">
+                <div style="font-family: 'Bricolage Grotesque'; font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 8px;">03. Trust & Confidentiality</div>
+                <h4 style="margin-bottom: 12px; font-weight: 600;">Strong Client Relationships</h4>
+                <p style="color: rgba(255,255,255,0.65);">We believe in total security and cultivating long-term trust, punctuated by thorough post-project reviews.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Client Logos Marquee -->
+<section class="py-section" style="background-color: var(--surface-alt); overflow: hidden;">
+    <div class="container text-center reveal">
+        <div class="section-label center">Trusted By</div>
+        <h2 style="margin-bottom: 40px; color: var(--dark);">Our Partner Network</h2>
+    </div>
+    
+    <div class="marquee-container" style="display: flex; flex-direction: column; gap: 24px; position: relative;">
+        <!-- Marquee Row 1 (Left to Right) -->
+        <div class="marquee-row" style="display: flex; width: max-content; gap: 24px; animation: scrollLeft 40s linear infinite;">
+            <!-- Logo set -->
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+            <!-- Duplicated for loop -->
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+        </div>
+        
+        <!-- Marquee Row 2 (Right to Left) -->
+        <div class="marquee-row" style="display: flex; width: max-content; gap: 24px; animation: scrollRight 40s linear infinite;">
+            <!-- Logo set -->
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+            <!-- Duplicated for loop -->
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="REMAX Advisory.png" alt="REMAX Advisory" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="Kila Kitu Interior Shop.avif" alt="Kila Kitu Interior Shop" style="height: 50px; object-fit: contain;"></div>
+            <div class="marquee-item"><img src="OHMS Network and Infrastructure Company.jpg" alt="OHMS Network" style="height: 50px; object-fit: contain;"></div>
+        </div>
+        
+        <style>
+        .marquee-item { background: white; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 24px 40px; color: var(--text-muted); display: flex; align-items: center; justify-content: center; min-width: 300px; filter: grayscale(100%); transition: all 0.3s; }
+        .marquee-item:hover { filter: grayscale(0); color: var(--primary); box-shadow: var(--shadow-sm); transform: translateY(-3px); border-color: var(--primary-light); }
+        .marquee-row:hover { animation-play-state: paused !important; }
+        @keyframes scrollLeft { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollRight { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        </style>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="py-section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); text-align: center; position: relative;">
+    <div class="container reveal">
+        <div class="section-label center" style="color: white;">Testimonials</div>
+        <h2 style="color: white; margin-bottom: 64px;">What Our Clients Say</h2>
+        
+        <div class="test-carousel" style="position: relative; max-width: 800px; margin: 0 auto; height: 320px;">
+            <div class="test-slide" style="position: absolute; top:0; left:0; width:100%; height:100%; transition: opacity 0.7s ease; opacity: 1;">
+                <div style="background: white; border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-md); position: relative;">
+                    <div style="font-family: 'Bricolage Grotesque', serif; font-size: 6rem; color: rgba(27,79,216,0.1); position: absolute; top: 16px; left: 32px; line-height: 1;">"</div>
+                    <p style="font-size: 1.25rem; color: var(--dark); font-style: italic; line-height: 1.8; margin-bottom: 32px; position:relative; z-index: 2;">
+                        Their team efficiently manages our recruitment, procurement, and social media activities while providing consistent HR guidance. They're a true partner to our growth.
+                    </p>
+                    <div style="color: var(--secondary); font-size: 20px; margin-bottom: 16px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin:0; font-weight: 700; color: var(--dark);">Agnes Kisuule</h4>
+                        <div class="caption" style="color: var(--text-muted); margin-top: 4px;">Kila Kitu Interior Shop</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="test-slide" style="position: absolute; top:0; left:0; width:100%; height:100%; transition: opacity 0.7s ease; opacity: 0;">
+                <div style="background: white; border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-md); position: relative;">
+                    <div style="font-family: 'Bricolage Grotesque', serif; font-size: 6rem; color: rgba(27,79,216,0.1); position: absolute; top: 16px; left: 32px; line-height: 1;">"</div>
+                    <p style="font-size: 1.25rem; color: var(--dark); font-style: italic; line-height: 1.8; margin-bottom: 32px; position:relative; z-index: 2;">
+                        The team supported us in preparing and organizing departmental documents with remarkable accuracy and efficiency. Highly recommended.
+                    </p>
+                    <div style="color: var(--secondary); font-size: 20px; margin-bottom: 16px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin:0; font-weight: 700; color: var(--dark);">Raymond</h4>
+                        <div class="caption" style="color: var(--text-muted); margin-top: 4px;">REMAX Advisory</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="test-slide" style="position: absolute; top:0; left:0; width:100%; height:100%; transition: opacity 0.7s ease; opacity: 0;">
+                <div style="background: white; border-radius: var(--radius-lg); padding: 48px; box-shadow: var(--shadow-md); position: relative;">
+                    <div style="font-family: 'Bricolage Grotesque', serif; font-size: 6rem; color: rgba(27,79,216,0.1); position: absolute; top: 16px; left: 32px; line-height: 1;">"</div>
+                    <p style="font-size: 1.25rem; color: var(--dark); font-style: italic; line-height: 1.8; margin-bottom: 32px; position:relative; z-index: 2;">
+                        Their professional and structured approach ensured that all processes were handled efficiently and effectively without any disruption.
+                    </p>
+                    <div style="color: var(--secondary); font-size: 20px; margin-bottom: 16px;">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 style="margin:0; font-weight: 700; color: var(--dark);">Khasim Nziraguhunga</h4>
+                        <div class="caption" style="color: var(--text-muted); margin-top: 4px;">OHMS Network and Infrastructure Company</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-dots" style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+            <div class="test-dot active"></div>
+            <div class="test-dot"></div>
+            <div class="test-dot"></div>
+        </div>
+        <style>
+        .test-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255,255,255,0.3); transition: all 0.3s; cursor: pointer; }
+        .test-dot.active { background: white; width: 32px; border-radius: var(--radius-pill); }
+        .test-carousel:hover .test-slide { animation-play-state: paused; }
+        </style>
+    </div>
+</section>
+
+<!-- CTA Strip -->
+<section class="py-section" style="background-color: var(--surface); text-align: center; position: relative;">
+    <div class="container reveal">
+        <h2 style="font-size: 2.75rem; color: var(--dark); margin-bottom: 24px;">Ready to Reclaim Your Time?</h2>
+        <p style="color: var(--text-muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto 40px;">
+            Book a free 30-minute consultation and let's discuss how we can transform your workflow and optimize your operations today.
+        </p>
+        <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 32px;">
+            <a href="contact.html" class="btn btn-primary">Book Free Consultation</a>
+            <a href="services.html" class="btn btn-outline">Explore Services</a>
+        </div>
+        <div style="display: flex; justify-content: center; gap: 32px; color: var(--dark);">
+            <span><i class="fa-solid fa-phone" style="color:var(--primary); margin-right:8px;"></i> <a href="tel:+256780545636">+256 780 545 636</a></span>
+            <span><i class="fa-solid fa-envelope" style="color:var(--primary); margin-right:8px;"></i> <a href="mailto:hr.business477@gmail.com">hr.business477@gmail.com</a></span>
+        </div>
+    </div>
+</section>
+
+<!-- Cookie Banner -->
+<div id="cookieBanner" style="position: fixed; bottom: 0; width: 100%; background: var(--dark); border-left: 4px solid var(--primary); z-index: 1000; display: none; padding: 24px 40px; box-shadow: 0 -4px 16px rgba(0,0,0,0.2);">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+        <div style="color: white;">We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</div>
+        <div style="display: flex; gap: 16px; align-items: center;">
+            <a href="#" style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Learn More</a>
+            <button id="acceptCookies" class="btn btn-primary" style="padding: 8px 24px;">Accept</button>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if(!localStorage.getItem('cookiesAccepted')) {
+        const banner = document.getElementById('cookieBanner');
+        banner.style.display = 'block';
+        document.getElementById('acceptCookies').addEventListener('click', () => {
+            banner.style.transform = 'translateY(100%)';
+            banner.style.transition = 'transform 0.5s ease';
+            setTimeout(() => banner.style.display = 'none', 500);
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+    }
+});
+</script>
+
+    <footer class="site-footer">
+        <div class="shape-divider top">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 120L0 120 0 0z" class="shape-fill"></path>
+            </svg>
+        </div>
+        <div class="footer-grid container">
+            <div class="footer-col" style="grid-column: span 1;">
+                <div class="footer-logo-wrap">
+                    <img src="logonew.webp" alt="Logo">
+                </div>
+                <p style="color: rgba(255,255,255,0.55); font-size: 0.9rem; line-height: 1.6; margin-top: 8px;">Registered Business Consulting &amp; Virtual Assistant Agency, based in Kampala, Uganda.</p>
+                <div class="footer-socials">
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="mailto:hr.business477@gmail.com" class="social-icon" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="tel:+256780545636" class="social-icon" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col reveal">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="services.html">Administrative Support</a></li>
+                    <li><a href="services.html">Customer & Client Support</a></li>
+                    <li><a href="services.html">Marketing & Social Media</a></li>
+                    <li><a href="services.html">Strategic & Executive Support</a></li>
+                    <li><a href="services.html">Operational Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col reveal" style="transition-delay: 0.1s;">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col reveal" style="transition-delay: 0.2s;">
+                <h4>Contact Us</h4>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <a href="tel:+256780545636">+256 780 545 636</a><br>
+                        <a href="tel:+256704188127">+256 704 188 127</a>
+                    </div>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:hr.business477@gmail.com">hr.business477@gmail.com</a>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <span>Kamwokya, Kampala Uganda</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p style="margin:0;">©2026 Business Consulting (Virtual Assistant Services). All rights reserved.</p>
+            <div style="display:flex; gap: 20px;">
+                <a href="#" style="color: rgba(255,255,255,0.4); transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Privacy Policy</a>
+                <a href="#" style="color: rgba(255,255,255,0.4); transition: color 0.2s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='rgba(255,255,255,0.4)'">Terms of Use</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Global Floating Elements -->
+    <a href="https://wa.me/256780545636?text=Hello!%20I'm%20interested%20in%20your%20Virtual%20Assistant%20&%20Business%20Consulting%20services.%20Can%20we%20discuss?" target="_blank" rel="noopener noreferrer" class="whatsapp-widget" aria-label="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+    <a href="#" class="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-chevron-up"></i>
+    </a>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.body.classList.add('loaded');
+
+  const navbar = document.querySelector('.navbar');
+  const backToTop = document.querySelector('.back-to-top');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+
+    if (window.scrollY > 500) backToTop?.classList.add('visible');
+    else backToTop?.classList.remove('visible');
+  });
+
+  const hamburger = document.querySelector('.hamburger');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const overlayLinks = document.querySelectorAll('.mobile-nav-link');
+  let menuOpen = false;
+
+  hamburger?.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    if (menuOpen) {
+      hamburger.children[0].style.transform = 'rotate(45deg) translateY(9px)';
+      hamburger.children[1].style.opacity = '0';
+      hamburger.children[2].style.transform = 'rotate(-45deg) translateY(-9px)';
+      overlay.classList.add('open');
+      overlayLinks.forEach((link, i) => {
+        setTimeout(() => {
+          link.style.opacity = '1';
+          link.style.transform = 'translateX(0)';
+        }, 200 + (i * 60));
+      });
+    } else {
+      hamburger.children[0].style.transform = 'none';
+      hamburger.children[1].style.opacity = '1';
+      hamburger.children[2].style.transform = 'none';
+      overlay.classList.remove('open');
+      overlayLinks.forEach((link) => {
+        link.style.opacity = '0';
+        link.style.transform = 'translateX(30px)';
+      });
+    }
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        if(entry.target.classList.contains('do-count') && !entry.target.dataset.counted) {
+          startCounter(entry.target);
+          entry.target.dataset.counted = true;
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .do-count').forEach(el => observer.observe(el));
+
+  function startCounter(el) {
+    const target = parseInt(el.dataset.target, 10);
+    let count = 0;
+    const dur = 2000;
+    const step = target / (dur / 16);
+    const animateCount = () => {
+      count += step;
+      if (count < target) {
+        el.innerText = Math.floor(count) + (el.dataset.suffix || '');
+        requestAnimationFrame(animateCount);
+      } else {
+        el.innerText = target + (el.dataset.suffix || '');
+      }
+    };
+    requestAnimationFrame(animateCount);
+  }
+
+  backToTop?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  const splitText = document.querySelector('.split-text');
+  if (splitText) {
+    const words = splitText.innerText.split(' ');
+    splitText.innerHTML = '';
+    words.forEach((word, i) => {
+      const span = document.createElement('span');
+      span.innerText = word;
+      span.style.display = 'inline-block';
+      span.style.marginRight = '0.25em';
+      span.style.opacity = '0';
+      span.style.transform = 'translateY(28px)';
+      span.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      span.style.transitionDelay = (i * 0.08) + 's';
+      splitText.appendChild(span);
+      
+      setTimeout(() => { span.style.opacity = '1'; span.style.transform = 'translateY(0)'; }, 100);
+    });
+  }
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const content = btn.nextElementSibling;
+      const isOpen = content.style.maxHeight;
+      document.querySelectorAll('.faq-answer').forEach(ans => { ans.style.maxHeight = null; ans.previousElementSibling.querySelector('i').className = 'fa-solid fa-plus'; });
+      if (!isOpen) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        btn.querySelector('i').className = 'fa-solid fa-minus';
+      }
+    });
+  });
+
+  const testSlides = document.querySelectorAll('.test-slide');
+  const testDots = document.querySelectorAll('.test-dot');
+  let currentSlide = 0;
+  if(testSlides.length > 0) {
+    const showSlide = (idx) => {
+      testSlides.forEach(s => s.style.opacity = '0');
+      testDots.forEach(d => d.classList.remove('active'));
+      testSlides[idx].style.opacity = '1';
+      testDots[idx].classList.add('active');
+    };
+    testDots.forEach((d, i) => {
+      d.addEventListener('click', () => {
+        currentSlide = i;
+        showSlide(i);
+      });
+    });
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % testSlides.length;
+      showSlide(currentSlide);
+    }, 6000);
+  }
+});
+</script>
+</body>
+</html>
